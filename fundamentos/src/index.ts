@@ -1,8 +1,2 @@
-const tecnologias: string[] = [
-   "TypeScript",
-   "Noje.js",
-   "NestJS",
-   "Angular"
-];
-
-console.log(tecnologias[0]);
+const prioridades: number[] = [1, 2, 3]
+console.log(prioridades);

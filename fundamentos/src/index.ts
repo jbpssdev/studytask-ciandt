@@ -1,7 +1,8 @@
-const nomeProjeto: string = "StudyTask";
-const versao: number = 1;
-const emDesenvolvimento: boolean = true;
+const tecnologias: string[] = [
+   "TypeScript",
+   "Noje.js",
+   "NestJS",
+   "Angular"
+];
 
-console.log(nomeProjeto);
-console.log(versao);
-console.log(emDesenvolvimento);
+console.log(tecnologias[0]);

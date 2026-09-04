@@ -1,9 +1,7 @@
-const nome: string = "Jackson";
-const curso: string = "Análise e Desenvolvimento de Sistemas";
-const estudando: boolean = true;
+const nomeProjeto: string = "StudyTask";
+const versao: number = 1;
+const emDesenvolvimento: boolean = true;
 
-console.log(nome);
-console.log(curso);
-console.log(estudando);
-
-//configuração de ambiente finalizada com sucesso, de forma manual!
+console.log(nomeProjeto);
+console.log(versao);
+console.log(emDesenvolvimento);

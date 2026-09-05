@@ -1,3 +1,14 @@
+const nomeProjeto: string = "StudyTask";
+const versao: number = 1;
+const emDesenvolvimento: boolean = true;
+
+const tecnologias: string[] = [
+   "TypeScript",
+   "Node.JS",
+   "NestJS",
+   "Angular"
+];
+
 const tarefas = [
    {
       id: 1,
@@ -13,10 +24,14 @@ const tarefas = [
    },
    {
       id: 3,
-      titulo: "Esztudar Angular",
-      concluido: false,
+      titulo: "Estudar Angular",
+      concludo: false,
       prioridade: 3
    }
 ];
 
-console.log(tarefas)
+console.log("Projeto:", nomeProjeto);
+console.log("Versão:", versao);
+console.log("Em desenvolvimento:", emDesenvolvimento)
+
+//apenas um teste para acessar as propriedades

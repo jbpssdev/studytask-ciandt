@@ -1,69 +1,64 @@
-const nomeProjeto: string = "StudyTask";
-const versao: number = 1;
-const emDesenvolvimento: boolean = true;
-let quantidadePendentes: number = 0;
-
-const tecnologias: string[] = [
-   "TypeScript",
-   "Node.JS",
-   "NestJS",
-   "Angular"
-];
-
 const tarefas = [
-   {
-      id: 1,
-      titulo: "Estudar TypeScript",
-      concluido: true,
-      prioridade: 1
-   },
-   {
-      id: 2,
-      titulo: "Estudar NestJS",
-      concluido: false,
-      prioridade: 2
-   },
-   {
-      id: 3,
-      titulo: "Estudar Angular",
-      concludo: false,
-      prioridade: 3
-   },
-   {
-      id: 4,
-      titulo: "Estudar JWT",
-      concluido: false,
-      prioridade: 2
-   }
+  {
+    id: 1,
+    titulo: "Estudar TypeScript",
+    concluida: true,
+    prioridade: 1
+  },
+  {
+    id: 2,
+    titulo: "Estudar NestJS",
+    concluida: false,
+    prioridade: 2
+  },
+  {
+    id: 3,
+    titulo: "Estudar Angular",
+    concluida: false,
+    prioridade: 3
+  },
+  {
+    id: 4,
+    titulo: "Estudar JWT",
+    concluida: false,
+    prioridade: 2
+  }
 ];
 
-// for (const tarefa of tarefas){
-//    if (tarefa.concludo){
-//       console.log(`${tarefa.titulo} está concluída.`);
-//    } else {
-//       console.log(`${tarefa.titulo} está pendente!`)
-//    }
-// }
+console.log("STATUS DAS TAREFAS");
 
-// Agora é trabalhar na prioridade 1, alta, 2, media, 3 baixa
+for (const tarefa of tarefas) {
 
-// for (const tarefa of tarefas){
-//    if (tarefa.prioridade === 1){
-//       console.log(`${tarefa.titulo}: prioridade alta!`);
-//    }else if (tarefa.prioridade === 2) {
-//       console.log(`${tarefa.titulo}: prioridade média!`)
-//    }else {
-//       console.log(`${tarefa.titulo}: prioridade baixa!`)
-//    }
-// }
+  if (tarefa.concluida) {
+    console.log(`${tarefa.titulo} está concluída.`);
+  } else {
+    console.log(`${tarefa.titulo} está pendente.`);
+  }
 
-for (const tarefa of tarefas){
-   if(tarefa.concluido === false){
-      quantidadePendentes = quantidadePendentes + 1;
-   }
 }
 
-console.log("Pendentes:", quantidadePendentes);
+console.log("\nPRIORIDADES");
 
-//apenas um teste para acessar as propriedades
-//npx tsc --noEmit não mostrou erros!
+for (const tarefa of tarefas) {
+
+  if (tarefa.prioridade === 1) {
+    console.log(`${tarefa.titulo}: alta`);
+  } else if (tarefa.prioridade === 2) {
+    console.log(`${tarefa.titulo}: média`);
+  } else {
+    console.log(`${tarefa.titulo}: baixa`);
+  }
+
+}
+
+let quantidadePendentes: number = 0;
+
+for (const tarefa of tarefas) {
+
+  if (!tarefa.concluida) {
+    quantidadePendentes = quantidadePendentes + 1;
+  }
+
+}
+
+console.log(`\nTotal de tarefas pendentes: ${quantidadePendentes}`);

@@ -1,6 +1,7 @@
 const nomeProjeto: string = "StudyTask";
 const versao: number = 1;
 const emDesenvolvimento: boolean = true;
+let quantidadePendentes: number = 0;
 
 const tecnologias: string[] = [
    "TypeScript",
@@ -46,15 +47,23 @@ const tarefas = [
 
 // Agora é trabalhar na prioridade 1, alta, 2, media, 3 baixa
 
+// for (const tarefa of tarefas){
+//    if (tarefa.prioridade === 1){
+//       console.log(`${tarefa.titulo}: prioridade alta!`);
+//    }else if (tarefa.prioridade === 2) {
+//       console.log(`${tarefa.titulo}: prioridade média!`)
+//    }else {
+//       console.log(`${tarefa.titulo}: prioridade baixa!`)
+//    }
+// }
+
 for (const tarefa of tarefas){
-   if (tarefa.prioridade === 1){
-      console.log(`${tarefa.titulo}: prioridade alta!`);
-   }else if (tarefa.prioridade === 2) {
-      console.log(`${tarefa.titulo}: prioridade média!`)
-   }else {
-      console.log(`${tarefa.titulo}: prioridade baixa!`)
+   if(tarefa.concluido === false){
+      quantidadePendentes = quantidadePendentes + 1;
    }
 }
+
+console.log("Pendentes:", quantidadePendentes);
 
 //apenas um teste para acessar as propriedades
 //npx tsc --noEmit não mostrou erros!

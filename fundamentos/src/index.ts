@@ -27,11 +27,22 @@ const tarefas = [
       titulo: "Estudar Angular",
       concludo: false,
       prioridade: 3
+   },
+   {
+      id: 4,
+      titulo: "Estudar JWT",
+      concluido: false,
+      prioridade: 2
    }
 ];
 
-console.log("Projeto:", nomeProjeto);
-console.log("Versão:", versao);
-console.log("Em desenvolvimento:", emDesenvolvimento)
+for (const tarefa of tarefas){
+   if (tarefa.concludo){
+      console.log(`${tarefa.titulo} está concluída.`);
+   } else {
+      console.log(`${tarefa.titulo} está pendente!`)
+   }
+}
 
 //apenas um teste para acessar as propriedades
+//npx tsc --noEmit não mostrou erros!

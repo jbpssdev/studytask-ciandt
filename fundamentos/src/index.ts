@@ -36,11 +36,23 @@ const tarefas = [
    }
 ];
 
+// for (const tarefa of tarefas){
+//    if (tarefa.concludo){
+//       console.log(`${tarefa.titulo} está concluída.`);
+//    } else {
+//       console.log(`${tarefa.titulo} está pendente!`)
+//    }
+// }
+
+// Agora é trabalhar na prioridade 1, alta, 2, media, 3 baixa
+
 for (const tarefa of tarefas){
-   if (tarefa.concludo){
-      console.log(`${tarefa.titulo} está concluída.`);
-   } else {
-      console.log(`${tarefa.titulo} está pendente!`)
+   if (tarefa.prioridade === 1){
+      console.log(`${tarefa.titulo}: prioridade alta!`);
+   }else if (tarefa.prioridade === 2) {
+      console.log(`${tarefa.titulo}: prioridade média!`)
+   }else {
+      console.log(`${tarefa.titulo}: prioridade baixa!`)
    }
 }
 

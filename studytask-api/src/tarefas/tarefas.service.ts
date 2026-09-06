@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { CriarTarefaDto } from './dto/criar-tarefa.dto';
 
 type Tarefa = {
    id: number;
@@ -28,6 +29,18 @@ export class TarefasService {
 
    listar(): Tarefa[]{
       return this.tarefas;
+   }
+
+   criar(dados: CriarTarefaDto): Tarefa{
+      const novaTarefa: Tarefa = {
+         id: this.tarefas.length + 1,
+         titulo: dados.titulo,
+         concluida: dados.concluida,
+      };
+
+      this.tarefas.push(novaTarefa);
+
+      return novaTarefa;
    }
 
 }

@@ -1,7 +1,12 @@
+import { IsBoolean, IsNotEmpty, IsString } from "class-validator";
+
 export class CriarTarefaDto {
+   @IsBoolean()
+   @IsNotEmpty()
    titulo: string;
+
+   @IsString()
    concluida: boolean;
 }
 
-//DTO representa a estrutura dos dados que entram ou saem de uma parte da aplicação!
-
+//Os decoratos de validação. Novidade pra mim!

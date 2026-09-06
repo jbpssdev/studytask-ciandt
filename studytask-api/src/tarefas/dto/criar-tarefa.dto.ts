@@ -1,12 +1,13 @@
 import { IsBoolean, IsNotEmpty, IsString } from "class-validator";
 
 export class CriarTarefaDto {
-   @IsBoolean()
+   @IsString()
    @IsNotEmpty()
    titulo: string;
 
-   @IsString()
+   @IsBoolean()
    concluida: boolean;
 }
 
 //Os decoratos de validação. Novidade pra mim!
+//Eu tinha invertido: coloquei IsBoolean em cima da string e IsString em cima do boolean. Já corrigi!

@@ -1,4 +1,4 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 import { TarefasService } from './tarefas.service';
 
 @Controller('tarefas')
@@ -10,3 +10,5 @@ export class TarefasController {
       return this.tarefasService.listar();
    }
 }
+
+// encontrei o erro! No import está chamando Controller. Está faltando o Get dentro.

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Param } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Post, Param } from '@nestjs/common';
 import { TarefasService } from './tarefas.service';
 import { CriarTarefaDto } from './dto/criar-tarefa.dto';
 
@@ -15,6 +15,11 @@ export class TarefasController {
    buscarPorId(@Param('id') id: number) {
       console.log('Tipo do id recebido:', typeof id, '| Valor:', id);
       return this.tarefasService.buscarPorId(id);
+   }
+
+   @Delete(':id')
+   remover(@Param('id') id: number) {
+      return this.tarefasService.remover(id);
    }
 
    @Post()

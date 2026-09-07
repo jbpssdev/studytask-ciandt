@@ -52,4 +52,24 @@ export class TarefasService {
 
       return tarefa;
    }
+
+   remover(id: number){
+      const indice = this.tarefas.findIndex((tarefa) => tarefa.id === id);
+
+      if(indice === -1){
+         throw new NotFoundException(`Tarefa com ID ${id} não encontrada!`);
+      }
+
+      this.tarefas.splice(indice, 1);
+
+      return { mensagem: `Tarefa ${id} removida com sucesso!`}
+   }
 }
+
+//Anotações:
+
+//void: é o TypeScript avisando que este método não retorna nenhum dado (apenas executa a ação).
+
+//.findIndex(...) é o JavaScript percorrendo o array para achar a posição. Se não encontrar, ele devolte -1.
+
+//this.tarefas.splice(indice, 1) é o JavaScript removendo exatamente 1 item a partir daquela posição (indice).

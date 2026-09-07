@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CriarTarefaDto } from './dto/criar-tarefa.dto';
 
 type Tarefa = {
@@ -43,4 +43,13 @@ export class TarefasService {
       return novaTarefa;
    }
 
+   buscarPorId(id: number): Tarefa {
+      const tarefa = this.tarefas.find((tarefa) => tarefa.id === id);
+
+      if(!tarefa) {
+         throw new NotFoundException(`Tarefa com ID ${id} não encontrado`);
+      }
+
+      return tarefa;
+   }
 }

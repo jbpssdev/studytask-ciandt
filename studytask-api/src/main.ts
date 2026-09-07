@@ -9,6 +9,6 @@ async function bootstrap() {
   //validationPipe adicionado!
   app.useGlobalPipes(new ValidationPipe())
 
-  await app.listen(process.env.PORT ?? 1989);
+  await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();

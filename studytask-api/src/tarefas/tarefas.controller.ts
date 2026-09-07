@@ -13,18 +13,8 @@ export class TarefasController {
 
    @Post()
    criar(@Body() dados: CriarTarefaDto) {
+      console.log('Instância real da classe?', dados instanceof CriarTarefaDto);
       return this.tarefasService.criar(dados);
    }
 }
 
-// encontrei o erro! No import está chamando Controller. Está faltando o Get dentro.
-
-//Mentalmente, o fluxo seria a requisição HTTP>body> (objeto)>@body>dados>CriarTarefaDto!
-
-//Invoke-RestMethod `
-//  >    -Method Post `
-//  >    -Uri http://localhost:3000/tarefas `
-//  >    -ContentType "application/json" `
-//  >    -Body '{"titulo":123,"concluida":"não"}'
-
-//Uma pegadinha! Nesse objeto json, na string eu coloquei number. Aceitou! Não deveria, mas acredito que o TypeScript sozinho não está conseguindo validar tudo. 

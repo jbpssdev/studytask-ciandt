@@ -1,6 +1,8 @@
-import { Body, Controller, Delete, Get, Post, Param } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Patch, Post, Param } from '@nestjs/common';
 import { TarefasService } from './tarefas.service';
 import { CriarTarefaDto } from './dto/criar-tarefa.dto';
+import { AtualizarTarefaDto } from './dto/atualizar-tarefa-dto';
+
 
 @Controller('tarefas')
 export class TarefasController {
@@ -26,6 +28,11 @@ export class TarefasController {
    criar(@Body() dados: CriarTarefaDto) {
       console.log('Instância real da classe?', dados instanceof CriarTarefaDto);
       return this.tarefasService.criar(dados);
+   }
+
+   @Patch(':id')
+   atualizar(@Param('id') id: number, @Body() dados: AtualizarTarefaDto,) {
+      return this.tarefasService.atualizar(id, dados);
    }
 }
 

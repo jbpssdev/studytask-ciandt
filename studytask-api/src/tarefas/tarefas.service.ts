@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { CriarTarefaDto } from './dto/criar-tarefa.dto';
+import { AtualizarTarefaDto } from './dto/atualizar-tarefa-dto';
 
 type Tarefa = {
    id: number;
@@ -64,6 +65,21 @@ export class TarefasService {
 
       return { mensagem: `Tarefa ${id} removida com sucesso!`}
    }
+
+   atualizar(id: number, dados: AtualizarTarefaDto): Tarefa {
+      const tarefa = this.buscarPorId(id); // aqui já busca a tarefa e lança o NotFoundException (404)
+
+      if(dados.titulo !== undefined) { //só altera o título se o cliente realmente enviou esse campo no JSON.
+         tarefa.titulo = dados.titulo;
+      }
+
+      if(dados.concluida !== undefined) {
+         tarefa.concluida = dados.concluida;
+      }
+
+      return tarefa;
+   }
+
 }
 
 //Anotações:

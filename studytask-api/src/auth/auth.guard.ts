@@ -7,10 +7,11 @@ export class AuthGuard implements CanActivate {
 
    async canActivate(context: ExecutionContext): Promise<boolean> {
       const request = context.switchToHttp().getRequest();
+      console.log('Cabeçalhos que chegaram no servidor: ', request.headers);
       const token = this.extrairTokenDoCabecalho(request);
 
       if(!token) {
-         throw new UnauthorizedException('Token não fornecido!')
+         throw new UnauthorizedException('Token não fornecido!');
       }
 
       try {
@@ -24,7 +25,7 @@ export class AuthGuard implements CanActivate {
    }
 
    private extrairTokenDoCabecalho(request: any): string | undefined {
-      const [tipo, token] = request.headers.authorization?.split('') ?? [];
-      return tipo === 'Beare' ? token : undefined;
+      const [tipo, token] = request.headers.authorization?.split(/\s+/) ?? [];
+      return tipo?.toLowerCase() === 'bearer' ? token : undefined;
    }
 }

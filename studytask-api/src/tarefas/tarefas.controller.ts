@@ -1,8 +1,10 @@
-import { Body, Controller, Delete, Get, Patch, Post, Param } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Patch, Post, Param, UseGuards} from '@nestjs/common';
 import { TarefasService } from './tarefas.service';
 import { CriarTarefaDto } from './dto/criar-tarefa.dto';
 import { AtualizarTarefaDto } from './dto/atualizar-tarefa-dto';
+import { AuthGuard } from '../auth/auth.guard';
 
+@UseGuards(AuthGuard)
 
 @Controller('tarefas')
 export class TarefasController {
@@ -35,11 +37,3 @@ export class TarefasController {
       return this.tarefasService.atualizar(id, dados);
    }
 }
-
-//Anotações importantes:
-
-//@Get(':id') é o NestJS definindo que essa rota recebe um parâmetro dinâmico na URL. Os dois pontos indicam que id é uma variável.
-
-//@Param('id') é o BestJS extraindo o valor do :id da URL e entregando para a variável.
-
-//Typeof id: é o JavaScript verificando o tipo real da variável no momento da execução.

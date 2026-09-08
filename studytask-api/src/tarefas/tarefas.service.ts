@@ -44,7 +44,7 @@ export class TarefasService {
       return novaTarefa;
    }
 
-   buscarPorId(id: number): Tarefa {
+   async buscarPorId(id: number): Promise<Tarefa> {
       const tarefa = this.tarefas.find((tarefa) => tarefa.id === id);
 
       if(!tarefa) {
@@ -66,10 +66,10 @@ export class TarefasService {
       return { mensagem: `Tarefa ${id} removida com sucesso!`}
    }
 
-   atualizar(id: number, dados: AtualizarTarefaDto): Tarefa {
-      const tarefa = this.buscarPorId(id); // aqui já busca a tarefa e lança o NotFoundException (404)
+   async atualizar(id: number, dados: AtualizarTarefaDto): Promise<Tarefa> {
+      const tarefa = await this.buscarPorId(id);
 
-      if(dados.titulo !== undefined) { //só altera o título se o cliente realmente enviou esse campo no JSON.
+      if(dados.titulo !== undefined) {
          tarefa.titulo = dados.titulo;
       }
 
@@ -81,11 +81,3 @@ export class TarefasService {
    }
 
 }
-
-//Anotações:
-
-//void: é o TypeScript avisando que este método não retorna nenhum dado (apenas executa a ação).
-
-//.findIndex(...) é o JavaScript percorrendo o array para achar a posição. Se não encontrar, ele devolte -1.
-
-//this.tarefas.splice(indice, 1) é o JavaScript removendo exatamente 1 item a partir daquela posição (indice).
